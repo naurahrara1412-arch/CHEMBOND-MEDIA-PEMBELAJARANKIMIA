@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHEMBOND — Ikatan Kovalen Koordinasi</title>
+<meta name="description" content="Media pembelajaran kimia interaktif: ikatan kovalen dan ikatan kovalen koordinasi (NH3, NH4+, H3O+).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a1a42'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23f6c64e'/%3E%3Cellipse cx='16' cy='16' rx='12' ry='5' fill='none' stroke='%235fd4ff' stroke-width='1.6'/%3E%3Cellipse cx='16' cy='16' rx='12' ry='5' fill='none' stroke='%235fd4ff' stroke-width='1.6' transform='rotate(60 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='12' ry='5' fill='none' stroke='%235fd4ff' stroke-width='1.6' transform='rotate(120 16 16)'/%3E%3C/svg%3E">
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<!-- ================= TOP BAR ================= -->
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand-mini">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="3.6" fill="#f6c64e"/><g fill="none" stroke="#5fd4ff" stroke-width="1.6"><ellipse cx="16" cy="16" rx="13" ry="5"/><ellipse cx="16" cy="16" rx="13" ry="5" transform="rotate(60 16 16)"/><ellipse cx="16" cy="16" rx="13" ry="5" transform="rotate(120 16 16)"/></g></svg>
+      CHEMBOND
+    </div>
+    <div class="progress"><span>Progress belajar</span><div class="bar"><i id="progFill"></i></div><b id="progPct">0%</b></div>
+    <button class="icon-btn" id="soundBtn" title="Nyalakan / matikan audio penjelasan">🔊 <span>Suara aktif</span></button>
+  </div>
+  <nav class="chips" id="chipNav" aria-label="Navigasi slide"></nav>
+</header>
+
+<main id="deck">
+
+<!-- ================= SLIDE 1 : BERANDA ================= -->
+<section class="slide" id="s1" data-name="Beranda">
+  <div class="hero">
+    <div class="atom-box">
+      <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="3.4" fill="#f6c64e"/><g fill="none" stroke="#8fb4ff" stroke-width="1.7"><ellipse cx="16" cy="16" rx="13" ry="5"/><ellipse cx="16" cy="16" rx="13" ry="5" transform="rotate(60 16 16)"/><ellipse cx="16" cy="16" rx="13" ry="5" transform="rotate(120 16 16)"/></g></svg>
+    </div>
+    <div class="logo-lockup">
+      <div class="word">CHEM-<br>BOND</div>
+      <div class="divider"></div>
+      <div class="sub">Media Pembelajaran Kimia</div>
+    </div>
+    <div class="hero-progress progress"><span>Progress belajar</span><div class="bar"><i class="progFill2"></i></div><b class="progPct2">0%</b></div>
+    <span class="pill">Media Pembelajaran Kimia • Interaktif</span>
+    <h1><span>Ikatan Kovalen Koordinasi</span></h1>
+    <p class="lead">Pelajari bagaimana satu atom dapat menyediakan seluruh pasangan elektron untuk ikatan, mulai dari konsep dasar, visualisasi elektron, sampai simulasi pembentukan ion amonium dan ion hidronium.</p>
+    <div class="feature-row">
+      <div>Konsep dasar</div><div>Visualisasi elektron</div><div>Simulasi bertahap</div><div>Kuis interaktif</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-gold" id="startBtn">Mulai Belajar</button>
+      <button class="btn btn-ghost" id="seeSimBtn">Lihat Simulasi</button>
+    </div>
+    <div class="hero-atom">
+      <svg viewBox="-250 -100 540 200" aria-label="Atom nitrogen dengan pasangan elektron bebas">
+        <defs>
+          <radialGradient id="gN" cx="35%" cy="30%"><stop offset="0" stop-color="#8fb4ff"/><stop offset="1" stop-color="#1b3f9e"/></radialGradient>
+          <radialGradient id="glowN"><stop offset="0" stop-color="rgba(91,143,255,.55)"/><stop offset="1" stop-color="rgba(91,143,255,0)"/></radialGradient>
+        </defs>
+        <circle r="90" fill="url(#glowN)"/>
+        <circle r="62" fill="none" stroke="rgba(143,180,255,.35)" stroke-dasharray="3 5"/>
+        <g class="orbit-spin" style="animation-duration:16s">
+          <circle cx="-56" cy="-26" r="4.5" fill="#dbe9ff"/>
+          <circle cx="44" cy="-40" r="4.5" fill="#dbe9ff"/>
+          <circle cx="-40" cy="46" r="4.5" fill="#dbe9ff"/>
+        </g>
+        <circle cx="-7" cy="-58" r="5.5" fill="#f6c64e"/><circle cx="8" cy="-58" r="5.5" fill="#f6c64e"/>
+        <path d="M14 -62 L52 -80 L120 -80" fill="none" stroke="#f6c64e" stroke-width="1.4"/>
+        <text x="124" y="-76" fill="#f6c64e" font-size="13">pasangan elektron bebas</text>
+        <circle r="26" fill="url(#gN)"/>
+        <text y="8" text-anchor="middle" fill="#fff" font-size="24" font-weight="800">N</text>
+      </svg>
+    </div>
+    <div class="byline">Disusun oleh<strong>Afifah Naurah Royyani</strong><em>NIM 06101182530009</em></div>
+  </div>
+  <div class="sources" data-src="kemdik chang"></div>
+</section>
+
+<!-- ================= SLIDE 2 : CARA BELAJAR ================= -->
+<section class="slide" id="s2" data-name="Cara Belajar">
+  <div class="slide-head">
+    <span class="eyebrow"><b>02</b> • Petunjuk Penggunaan</span>
+    <h2>Bagaimana cara belajar di sini?</h2>
+    <p>Baca setiap langkah satu per satu. Tombol <b>Lanjut</b> baru aktif setelah kamu sempat membaca langkahnya.</p>
+  </div>
+  <div class="card howto" id="howto">
+    <div class="howto-side">
+      <div class="howto-num" id="howNum">1<small> / 7</small></div>
+      <div class="howto-dots" id="howDots"></div>
+    </div>
+    <div class="howto-main">
+      <div class="ico" id="howIco">🔒</div>
+      <h3 id="howTitle"></h3>
+      <p id="howText"></p>
+      <div class="btn-row">
+        <button class="btn btn-line" id="howPrev">← Sebelumnya</button>
+        <button class="btn btn-blue read-timer" id="howNext"><span class="fill"></span><span class="lbl">Lanjut →</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card locked-block is-locked" id="studentCard">
+    <div class="lock-overlay"><span>🔒 Baca semua langkah di atas untuk mengisi data siswa</span></div>
+    <span class="tag">Data Siswa</span>
+    <h3>Masukkan data dirimu</h3>
+    <div class="grid-2" style="gap:14px">
+      <div class="field"><label for="stName">Nama siswa:</label><input class="input" id="stName" placeholder="Tulis nama lengkapmu" autocomplete="name"></div>
+      <div class="field"><label for="stClass">Kelas siswa:</label><input class="input" id="stClass" placeholder="Contoh: XI MIPA 2"></div>
+    </div>
+    <button class="btn btn-gold" id="saveStudent">Simpan &amp; Lanjutkan</button>
+    <div class="feedback" id="studentFb"></div>
+  </div>
+  <div class="sources" data-src="kemdik"></div>
+</section>
+
+<!-- ================= SLIDE 3 : TUJUAN ================= -->
+<section class="slide" id="s3" data-name="Tujuan">
+  <div class="card" style="padding:28px">
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:6px"><span style="width:5px;height:34px;border-radius:9px;background:linear-gradient(var(--blue-600),var(--cyan))"></span><b style="color:var(--cyan)">Peta Pembelajaran</b></div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(28px,4.4vw,42px);margin:6px 0 6px;color:var(--ink);line-height:1.15">Apa yang akan kamu pelajari?</h2>
+    <p style="color:var(--ink-3);margin-bottom:20px">Kenali dulu tujuan belajarmu, lalu jawab pertanyaan pemantik sebelum masuk ke materi.</p>
+    <div class="grid-2">
+      <div class="card" style="box-shadow:none">
+        <h3>Capaian Pembelajaran</h3>
+        <p>Pada akhir Fase F, peserta didik mampu memahami berbagai jenis ikatan kimia dan proses pembentukannya. Peserta didik mampu menjelaskan pembentukan ikatan kovalen koordinasi, menentukan atom donor dan akseptor pasangan elektron, serta menggambarkan pembentukan ikatan kovalen koordinasi menggunakan notasi Lewis.</p>
+      </div>
+      <div class="card" style="box-shadow:none">
+        <h3>Tujuan Pembelajaran</h3>
+        <ul>
+          <li>Peserta didik dapat menjelaskan konsep ikatan kovalen</li>
+          <li>Peserta didik dapat membedakan ikatan kovalen dan ikatan kovalen koordinasi setelah melihat simulasi</li>
+          <li>Peserta didik dapat menentukan elektron valensi dan pasangan elektron bebas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card accent-left">
+    <span class="tag">Pertanyaan Pemantik</span>
+    <h3>Apa fungsi amonia pada bidang pertanian?</h3>
+    <p>Tulis jawabanmu dengan kata-katamu sendiri, lalu tekan <b>Periksa Jawaban</b>.</p>
+    <textarea class="input" id="pemantikAns" placeholder="Tulis jawabanmu di sini..."></textarea>
+    <div class="btn-row"><button class="btn btn-blue" id="pemantikBtn">Periksa Jawaban</button></div>
+    <div class="feedback" id="pemantikFb"></div>
+  </div>
+
+  <div class="card dark" style="text-align:center">
+    <p style="font-size:18px;color:#fff;margin:0">✨ Hari ini kita akan belajar <b style="color:var(--gold)">ikatan kovalen koordinasi</b>.</p>
+  </div>
+  <div class="sources" data-src="cp erisman smil"></div>
+</section>
+
+<!-- ================= SLIDE 4 : KONSEP DASAR ================= -->
+<section class="slide" id="s4" data-name="Konsep Dasar">
+  <div class="slide-head">
+    <span class="eyebrow"><b>04</b> • Konsep Dasar</span>
+    <h2>Ikatan Kovalen &amp; Elektron Valensi</h2>
+    <p>Pahami dulu dua jenis ikatan yang akan kamu simulasikan, lalu cara menentukan elektron valensi sebuah atom.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <span class="tag">Pengertian</span>
+      <h3>Ikatan Kovalen</h3>
+      <p>Ikatan yang terbentuk karena <b>pemakaian bersama pasangan elektron</b> oleh dua atom (umumnya sesama nonlogam). Setiap atom <b>menyumbangkan elektron</b> untuk dipakai bersama sehingga keduanya mencapai susunan elektron stabil (oktet atau duplet).</p>
+      <div class="callout">Contoh: H<sub>2</sub>, Cl<sub>2</sub>, H<sub>2</sub>O, NH<sub>3</sub>. Pada N—H, satu elektron dari N + satu elektron dari H.</div>
+    </div>
+    <div class="card">
+      <span class="tag">Pengertian</span>
+      <h3>Ikatan Kovalen Koordinasi</h3>
+      <p>Ikatan kovalen yang <b>pasangan elektron bersamanya berasal dari satu atom saja</b>. Atom pemberi pasangan elektron bebas disebut <b>donor</b>, sedangkan atom/ion yang menerima (punya orbital kosong) disebut <b>akseptor</b>.</p>
+      <div class="callout">Contoh: NH<sub>4</sub><sup>+</sup>, H<sub>3</sub>O<sup>+</sup>, NH<sub>3</sub>BF<sub>3</sub>. Sering ditulis dengan panah: donor → akseptor.</div>
+    </div>
+  </div>
+  <div class="section-gap"></div>
+
+  <div class="card">
+    <span class="tag">Elektron Valensi</span>
+    <h3>Bagaimana cara menentukan elektron valensi?</h3>
+    <p><b>Elektron valensi</b> adalah elektron pada <b>kulit terluar</b> sebuah atom. Elektron inilah yang berperan saat atom membentuk ikatan.</p>
+    <ol>
+      <li>Lihat <b>nomor atom (Z)</b>. Pada atom netral, jumlah elektron = Z.</li>
+      <li>Isi elektron mulai dari kulit terdalam (K → L → M → N). Jumlah maksimum tiap kulit = <b>2n²</b>.</li>
+      <li>Kulit terluar paling banyak berisi <b>8 elektron</b>. Jika sisa elektron melebihi 8, isi 8 dulu dan pindahkan sisanya ke kulit berikutnya.</li>
+      <li>Jumlah elektron pada kulit paling luar = <b>elektron valensi</b>.</li>
+    </ol>
+    <div class="grid-2" style="margin-top:8px">
+      <table class="shell-table">
+        <thead><tr><th>Kulit</th><th>n</th><th>Rumus 2n²</th><th>Maks. elektron</th></tr></thead>
+        <tbody>
+          <tr><td>K</td><td>1</td><td>2(1)²</td><td class="num">2</td></tr>
+          <tr><td>L</td><td>2</td><td>2(2)²</td><td class="num">8</td></tr>
+          <tr><td>M</td><td>3</td><td>2(3)²</td><td class="num">18</td></tr>
+          <tr><td>N</td><td>4</td><td>2(4)²</td><td class="num">32</td></tr>
+        </tbody>
+      </table>
+      <div class="callout blue">
+        <b>Contoh:</b> Natrium (Z = 11)<br>
+        K = 2, L = 8, M = 1 → konfigurasi <b>2 8 1</b><br>
+        Kulit terluar (M) berisi 1 elektron → <b>elektron valensi = 1</b>.<br><br>
+        <b>Contoh lain:</b> Kalium (Z = 19) → <b>2 8 8 1</b> (bukan 2 8 9, karena kulit terluar maksimal 8).
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="tag">Ilustrasi Model Atom</span>
+    <h3>Elektron yang berputar di kulitnya</h3>
+    <p>Pilih atom untuk melihat bagaimana elektron mengisi tiap kulit. Elektron <b style="color:#d39b12">kuning</b> adalah elektron valensi.</p>
+    <div class="atom-picker" id="bohrPicker"></div>
+    <div class="bohr-wrap">
+      <div class="bohr-stage" id="bohrStage"></div>
+      <div class="bohr-info" id="bohrInfo"></div>
+    </div>
+  </div>
+
+  <div class="card accent-left">
+    <span class="tag">Ayo Coba</span>
+    <h3>Tentukan konfigurasi elektron dan elektron valensi</h3>
+    <p>Tulis konfigurasi per kulit dipisah spasi (contoh Na: <code>2 8 1</code>). Notasi subkulit seperti <code>1s2 2s2 2p6 3s1</code> juga diterima.</p>
+    <div class="ex-grid" id="ex4"></div>
+    <div class="btn-row"><button class="btn btn-blue" id="ex4Btn">Periksa Jawaban</button></div>
+    <div class="feedback" id="ex4Fb"></div>
+  </div>
+  <div class="sources" data-src="chang brown kemdik"></div>
+</section>
+
+<!-- ================= SLIDE 5 : SIMULASI NH3 ================= -->
+<section class="slide" id="s5" data-name="Simulasi NH₃">
+  <div class="slide-head">
+    <span class="eyebrow"><b>05</b> • Simulasi Ikatan Kovalen</span>
+    <h2>Pembentukan NH<sub>3</sub></h2>
+    <p>Tekan <b>Berikutnya</b> untuk melihat atom H mendekati atom N dan memakai bersama elektronnya.</p>
+  </div>
+  <div class="card">
+    <div class="sim-head">
+      <div><h3 style="margin:0 0 6px">Simulasi Ikatan Kovalen NH<sub>3</sub></h3><p style="margin:0">Elektron <b style="color:#2b8fd6">biru</b> berasal dari N, elektron <b style="color:#e0477c">merah muda</b> berasal dari H.</p></div>
+      <div style="display:flex;gap:10px;align-items:center"><span class="stage-pill" id="nh3Pill">Tahap 1/4</span><span class="stage-bars" id="nh3Bars"></span></div>
+    </div>
+  </div>
+  <div class="sim-panel">
+    <div class="sim-top"><b>Simulasi NH<sub>3</sub></b><span id="nh3Status">Elektron valensi</span></div>
+    <svg viewBox="-320 -215 640 400" id="nh3Svg" class="sim-anim"></svg>
+    <div class="sim-caption"><div class="em" id="nh3Em"></div><p id="nh3Cap"></p></div>
+  </div>
+  <div class="sim-controls">
+    <button class="btn btn-line" id="nh3Prev">← Sebelumnya</button>
+    <button class="btn btn-blue" id="nh3Next">Berikutnya →</button>
+    <button class="btn btn-line" id="nh3Reset">↻ Ulangi Simulasi</button>
+  </div>
+  <div class="narration"><button class="spk" id="nh3Spk" title="Putar penjelasan">🔊</button><p id="nh3Narr">Tekan tombol 🔊 untuk mendengar penjelasan tahap ini.</p></div>
+  <div class="section-gap"></div>
+  <div class="card locked-block is-locked" id="nh3Q">
+    <div class="lock-overlay"><span>🔒 Selesaikan simulasi sampai Tahap 4/4</span></div>
+    <h3>Apa yang telah kamu pahami?</h3>
+    <p>Setelah melihat simulasi ikatan kovalen NH<sub>3</sub> di atas, apa yang telah kamu pahami? Jelaskan dengan kata-katamu sendiri.</p>
+    <textarea class="input" id="nh3Ans" placeholder="Tulis tanggapanmu di sini..."></textarea>
+    <div class="hint" id="nh3Count">Tulis minimal 10 karakter (0/10).</div>
+    <div class="btn-row"><button class="btn btn-blue" id="nh3Check">Periksa Jawaban</button></div>
+    <div class="feedback" id="nh3Fb"></div>
+  </div>
+  <div class="sources" data-src="chang petrucci kemdik"></div>
+</section>
+
+<!-- ================= SLIDE 6 : SIMULASI NH4+ ================= -->
+<section class="slide" id="s6" data-name="Simulasi NH₄⁺">
+  <div class="slide-head">
+    <span class="eyebrow"><b>06</b> • Simulasi Ikatan Kovalen Koordinasi</span>
+    <h2>Dari NH<sub>3</sub> menjadi NH<sub>4</sub><sup>+</sup></h2>
+    <p>Kali ini <b>kamu</b> yang menggerakkan simulasinya. Ikuti arahan di setiap tahap — klik atau seret atom. Audio penjelasan akan berbunyi otomatis di setiap tahap.</p>
+  </div>
+  <div class="card">
+    <div class="sim-head">
+      <div><span class="tag" id="nh4StepTag">Tahap 1 dari 6</span><h3 style="margin:0" id="nh4StepTitle"></h3></div>
+      <span class="stage-pill" id="nh4Pill">Tahap 1/6</span>
+    </div>
+    <div class="steps-track" id="nh4Track"></div>
+    <div class="narration"><button class="spk" id="nh4Spk" title="Putar ulang penjelasan">🔊</button><p id="nh4Narr"></p></div>
+  </div>
+  <div class="sim-panel">
+    <div class="sim-top"><b>Simulasi NH<sub>4</sub><sup>+</sup></b><span id="nh4Status">Arahkan &amp; seret atom</span></div>
+    <svg viewBox="-320 -240 640 470" id="nh4Svg"></svg>
+    <div class="sim-caption"><div class="em" id="nh4Em"></div><p id="nh4Cap"></p></div>
+  </div>
+  <div class="card" id="nh4Choice" style="display:none">
+    <h3>Tentukan donor dan akseptor</h3>
+    <div class="choice-row">
+      <label>Donor pasangan elektron: <select class="input" id="nh4Donor"><option value="">— pilih —</option><option value="n">Atom N pada NH₃</option><option value="h">Ion H⁺</option><option value="hb">Atom H pada NH₃</option></select></label>
+      <label>Akseptor pasangan elektron: <select class="input" id="nh4Acc"><option value="">— pilih —</option><option value="n">Atom N pada NH₃</option><option value="h">Ion H⁺</option><option value="hb">Atom H pada NH₃</option></select></label>
+      <button class="btn btn-blue" id="nh4ChoiceBtn">Periksa</button>
+    </div>
+    <div class="feedback" id="nh4ChoiceFb"></div>
+  </div>
+  <div class="sim-controls" style="grid-template-columns:1fr">
+    <button class="btn btn-line" id="nh4Reset">↻ Ulangi Simulasi</button>
+  </div>
+  <div class="card gold callout" style="background:var(--warn-bg)"><b>Tantangan:</b> Jangan hanya menghafal arah panah. Saat panah N → H<sup>+</sup> muncul, tanyakan pada dirimu: dua elektron itu awalnya berada di mana?</div>
+  <div class="card locked-block is-locked" id="nh4Q">
+    <div class="lock-overlay"><span>🔒 Selesaikan keenam tahap simulasi</span></div>
+    <h3>Apa yang telah kamu pahami?</h3>
+    <p>Jelaskan bagaimana NH<sub>3</sub> dan H<sup>+</sup> dapat membentuk NH<sub>4</sub><sup>+</sup>.</p>
+    <textarea class="input" id="nh4Ans" placeholder="Tulis tanggapanmu di sini..."></textarea>
+    <div class="btn-row"><button class="btn btn-blue" id="nh4Check">Periksa Jawaban</button></div>
+    <div class="feedback" id="nh4Fb"></div>
+  </div>
+  <div class="sources" data-src="petrucci housecroft kemdik"></div>
+</section>
+
+<!-- ================= SLIDE 7 : UJI SIMULASI H3O+ ================= -->
+<section class="slide" id="s7" data-name="Uji Simulasi H₃O⁺">
+  <div class="slide-head">
+    <span class="eyebrow"><b>07</b> • Uji Pemahaman Simulasi</span>
+    <h2>Giliranmu: Ion Hidronium H<sub>3</sub>O<sup>+</sup></h2>
+    <p>Terapkan yang sudah kamu pelajari pada senyawa baru. Kerjakan bagian a → d secara berurutan.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">a. Model atom H dan O</span>
+    <h3>Elektron yang mengelilingi inti atom</h3>
+    <div class="grid-2" id="h3oBohr"></div>
+  </div>
+
+  <div class="card accent-left">
+    <span class="tag">b. Konfigurasi &amp; elektron valensi</span>
+    <h3>Tulis konfigurasi elektron atom H dan O</h3>
+    <div class="ex-grid" id="ex7"></div>
+    <div class="btn-row"><button class="btn btn-blue" id="ex7Btn">Periksa Jawaban</button></div>
+    <div class="feedback" id="ex7Fb"></div>
+  </div>
+
+  <div class="locked-block is-locked" id="h3oSimBlock">
+    <div class="lock-overlay"><span>🔒 Selesaikan bagian b terlebih dahulu</span></div>
+    <div class="card">
+      <div class="sim-head">
+        <div><span class="tag">c. Simulasi</span><h3 style="margin:0" id="h3oTitle">Bentuk H<sub>2</sub>O, lalu H<sub>3</sub>O<sup>+</sup></h3></div>
+        <span class="stage-pill" id="h3oPill">Bagian 1/2</span>
+      </div>
+      <div class="narration"><button class="spk" id="h3oSpk" title="Putar penjelasan">🔊</button><p id="h3oNarr"></p></div>
+    </div>
+    <div class="sim-panel">
+      <div class="sim-top"><b>Simulasi H<sub>3</sub>O<sup>+</sup></b><span id="h3oStatus">Seret atom ke posisi yang tepat</span></div>
+      <svg viewBox="-320 -240 640 470" id="h3oSvg"></svg>
+      <div class="sim-caption"><div class="em" id="h3oEm"></div><p id="h3oCap"></p></div>
+    </div>
+    <div class="sim-controls" style="grid-template-columns:1fr"><button class="btn btn-line" id="h3oReset">↻ Ulangi Simulasi</button></div>
+  </div>
+
+  <div class="card locked-block is-locked" id="h3oQ">
+    <div class="lock-overlay"><span>🔒 Selesaikan simulasi H₃O⁺ terlebih dahulu</span></div>
+    <span class="tag">d. Jelaskan</span>
+    <h3>Bagaimana H<sub>2</sub>O dan H<sup>+</sup> dapat membentuk H<sub>3</sub>O<sup>+</sup>?</h3>
+    <textarea class="input" id="h3oAns" placeholder="Jelaskan secara singkat..."></textarea>
+    <div class="btn-row"><button class="btn btn-blue" id="h3oCheck">Periksa Jawaban</button></div>
+    <div class="feedback" id="h3oFb"></div>
+  </div>
+  <div class="sources" data-src="brown silberberg kemdik"></div>
+</section>
+
+<!-- ================= SLIDE 8 : UJI PEMAHAMAN ================= -->
+<section class="slide" id="s8" data-name="Uji Pemahaman">
+  <div class="slide-head">
+    <span class="eyebrow"><b>08</b> • Uji Pemahaman</span>
+    <h2>10 Soal Esai</h2>
+    <p>Jawab setiap soal dengan kata-katamu sendiri. Setiap soal hanya diperiksa satu kali; jika kurang tepat, kamu akan melihat jawaban yang tepat beserta penjelasannya. Setelah soal ke-10, nilaimu langsung muncul.</p>
+  </div>
+  <div class="card" id="quizCard">
+    <div class="quiz-top"><span class="stage-pill" id="qPill">Soal 1/10</span><div class="quiz-nums" id="qNums"></div></div>
+    <div class="q-text" id="qText"></div>
+    <textarea class="input" id="qAns" placeholder="Tulis jawabanmu..."></textarea>
+    <div class="btn-row"><button class="btn btn-blue" id="qCheck">Periksa Jawaban</button><button class="btn btn-gold" id="qNext" style="display:none">Soal Berikutnya →</button></div>
+    <div class="feedback" id="qFb"></div>
+  </div>
+  <div class="card" id="quizResult" style="display:none"></div>
+  <div class="sources" data-src="chang brown petrucci kemdik"></div>
+</section>
+
+<!-- ================= SLIDE 9 : RINGKASAN ================= -->
+<section class="slide" id="s9" data-name="Ringkasan">
+  <div class="slide-head">
+    <span class="eyebrow"><b>09</b> • Ringkasan</span>
+    <h2>Kesimpulan Materi</h2>
+    <p>Rangkuman konsep donor, akseptor, dan perbedaan ikatan kovalen dengan ikatan kovalen koordinasi.</p>
+  </div>
+  <div class="card">
+    <div class="grid-2">
+      <div class="def-box donor"><h4>Donor pasangan elektron</h4><p>Atom yang <b>memberikan pasangan elektron bebasnya</b> untuk dipakai bersama. Contoh: atom N pada NH<sub>3</sub> dan atom O pada H<sub>2</sub>O.</p></div>
+      <div class="def-box acc"><h4>Akseptor pasangan elektron</h4><p>Atom atau ion yang <b>menerima pasangan elektron</b> karena memiliki orbital kosong. Contoh: ion H<sup>+</sup> (orbital 1s kosong).</p></div>
+    </div>
+    <h4 style="margin-top:20px">Perbedaan ikatan kovalen dan ikatan kovalen koordinasi</h4>
+    <div style="overflow-x:auto">
+    <table class="cmp-table">
+      <thead><tr><th>Aspek</th><th>Ikatan kovalen</th><th>Ikatan kovalen koordinasi</th></tr></thead>
+      <tbody>
+        <tr><td>Asal pasangan elektron</td><td>Dari kedua atom (masing-masing menyumbang 1 elektron per ikatan)</td><td>Dari satu atom saja (donor); atom lain (akseptor) hanya menyediakan orbital kosong</td></tr>
+        <tr><td>Syarat</td><td>Kedua atom memiliki elektron tunggal yang dapat dipasangkan</td><td>Donor memiliki pasangan elektron bebas; akseptor memiliki orbital kosong</td></tr>
+        <tr><td>Notasi</td><td>Garis A—B</td><td>Panah donor → akseptor (setelah terbentuk ditulis sebagai garis biasa)</td></tr>
+        <tr><td>Contoh</td><td>H<sub>2</sub>, H<sub>2</sub>O, NH<sub>3</sub>, CH<sub>4</sub></td><td>NH<sub>4</sub><sup>+</sup>, H<sub>3</sub>O<sup>+</sup>, NH<sub>3</sub>BF<sub>3</sub></td></tr>
+        <tr><td>Setelah terbentuk</td><td colspan="2">Keduanya sama-sama ikatan kovalen; pada NH<sub>4</sub><sup>+</sup> keempat ikatan N—H identik dan tidak dapat dibedakan.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout blue" style="margin-top:14px"><b>Kesimpulan:</b> NH<sub>3</sub> terbentuk dari 3 ikatan kovalen N—H dan masih menyisakan 1 pasangan elektron bebas. Pasangan inilah yang didonorkan ke ion H<sup>+</sup> sehingga terbentuk ikatan kovalen koordinasi pada ion amonium NH<sub>4</sub><sup>+</sup>. Dengan cara yang sama, atom O pada H<sub>2</sub>O mendonorkan salah satu pasangan elektron bebasnya ke H<sup>+</sup> membentuk ion hidronium H<sub>3</sub>O<sup>+</sup>.</div>
+  </div>
+
+  <div class="card accent-left" id="reflectCard">
+    <span class="tag">Refleksi (wajib)</span>
+    <h3>Pertanyaan refleksi</h3>
+    <p>Jawab ketiga pertanyaan berikut dengan jujur (minimal 5 kata tiap jawaban).</p>
+    <div class="field"><label for="r1">1. Bagian mana dari materi ini yang paling mudah dan paling sulit kamu pahami? Mengapa?</label><textarea class="input" id="r1"></textarea></div>
+    <div class="field"><label for="r2">2. Setelah melakukan simulasi, bagaimana kamu menjelaskan perbedaan ikatan kovalen dan ikatan kovalen koordinasi kepada temanmu?</label><textarea class="input" id="r2"></textarea></div>
+    <div class="field"><label for="r3">3. Apa manfaat mempelajari ikatan pada amonia (NH<sub>3</sub>) dan ion amonium (NH<sub>4</sub><sup>+</sup>) dalam kehidupan sehari-hari, misalnya di bidang pertanian?</label><textarea class="input" id="r3"></textarea></div>
+    <button class="btn btn-gold" id="reflectBtn">Kirim Refleksi</button>
+    <div class="feedback" id="reflectFb"></div>
+  </div>
+  <div class="card finish" id="finishCard" style="display:none"></div>
+  <div class="sources" data-src="chang petrucci housecroft kemdik"></div>
+</section>
+
+</main>
+
+<!-- ================= BOTTOM BAR ================= -->
+<footer class="bottombar">
+  <div class="bottombar-in">
+    <div><button class="btn btn-ghost" id="prevBtn">← Sebelumnya</button></div>
+    <div class="mid"><div id="slideNo">Slide 1 / 9</div><div class="dots" id="dots"></div><div class="lock-note" id="lockNote"></div></div>
+    <div class="right"><button class="btn btn-gold" id="nextBtn">Berikutnya →</button></div>
+  </div>
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
